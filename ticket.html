@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="./icon-star.svg" type="image/x-icon">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Arima:wght@100..700&display=swap');
+    </style>
+  <title>Ticketing System</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="welcome">
+    <h1>Welcome!,</h1>
+    <p>To <b> THE TICKETRY!</b> Here you can create, view, and manage your tickets.</p>
+    <button id="logout-btn">Logout</button>
+  </div>
+  <div id="tkt-btn">
+    <button id="add-ticket-btn">Add New Ticket</button>
+  </div>
+  <!-- Ticket Table -->
+ <div class="tkt-table">
+    <table>
+      <thead>
+        <tr>
+         <th>Title</th>
+         <th>Customer's Name</th>
+         <th>Issue</th>
+         <th>Priority</th>
+         <th>Action</th>
+       </tr>
+     </thead>
+     <tbody id="ticketRows">
+       <!-- Ticket rows will be added here dynamically -->
+     </tbody>
+    </table>
+ </div>
+  <div class="container">
+    <div class="sub-container" id="popup" style="display: none;">
+      <!-- Ticket Form (hidden initially) -->
+      <form id="ticket-form">
+        <span class="close">&times;</span>
+        <h1>Create a Ticket</h1>
+        <div>
+          <input type="text" id="title" class="details" placeholder="Title" required>
+        </div>
+        <div>
+          <textarea id="description" class="details" placeholder="Description" required></textarea>
+        </div>
+        <div>
+          <select id="issueType" class="priority" required>
+            <option value="">Issue</option>
+            <option value="Complaint">Complaint</option>
+            <option value="Support">Support</option>
+          </select>
+        </div>
+        <div>
+          <select id="priorityLevel" class="priority" required>
+            <option value="">Priority</option>
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+          </select>
+        </div>
+        <div>
+          <input type="text" id="customersname" class="details" placeholder="Customer's Name" required>
+        </div>
+        <!-- Popup for Success Message -->
+        <div id="message"></div> <!-- Capitalized 'M' to match the JavaScript ID -->
+        <button id="create" class="btn" type="button">Create Ticket</button>
+      </form>
+    </div>
+  </div>
+  <!-- Popup for Viewing Ticket Details -->
+  <div id="detail-popup" class="popup-message" style="display: none;">
+    <span class="close close-detail">&times;</span>
+    <div id="detail-content"></div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore-compat.js"></script>
+
+  <script type="module" src="./ticket.js"></script>
+</body>
+</html>

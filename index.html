@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="./icon-star.svg" type="image/x-icon">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Arima:wght@100..700&display=swap');
+    </style>
+  <title>Login</title>
+  <link rel="stylesheet" href="./style.css">
+  
+</head>
+<body>
+  <div class="container">
+    <div class="sub-container">
+      <h1>Login</h1>
+     <form id="login-form">
+       <div>
+         <input type="email" id="login-email" class="details" placeholder="Email" required>
+       </div>
+
+       <div>
+         <input type="password" id="login-password" class="details" placeholder="Password" required>
+        </div>
+        <button id="btn-log" class="btn" type="submit">Login</button>
+     </form>
+     <div id="strengthMessage"></div> <!-- Message display area -->
+     <div class="link">
+       <p>Don't have an account? <a id="link" href="./signup.html">Sign Up</a></p>
+     </div>
+    </div>
+  </div>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
+
+  <script type="module" src="./index.js"></script>
+</body>
+</html>
