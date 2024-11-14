@@ -296,6 +296,17 @@ h1{
 .welcome p{
     margin-bottom: 20px;
 }
+.logo{
+    display: flex;
+}
+.logo img{  
+     margin-bottom: 40px;
+     margin-top: 7px;
+     margin-right: 5px;
+     width: 30px;
+     height: 30px;
+}
+
 
   
 
