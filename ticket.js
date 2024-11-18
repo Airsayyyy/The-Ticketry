@@ -210,18 +210,19 @@ async function deleteTicket(ticketId, row) {
   try {
     await deleteDoc(doc(db, 'tickets', ticketId));
     row.remove(); // Remove the ticket row from the table
+    alert("Ticket deleted Successfully")
   } catch (error) {
-    console.error("Error deleting ticket:", error);
+    alert("Error deleting ticket:", error);
   }
 }
 
 // Logout functionality
 logoutbtn.addEventListener('click', function() {
   signOut(auth).then(() => {
-    console.log('User signed out successfully.');
+    alert('User signed out successfully.');
     window.location.href = 'index.html'; // Redirect to login page after sign out
   }).catch((error) => {
-    console.error('Error signing out:', error);
+    alert('Error signing out:', error);
   });
 });
 
@@ -238,7 +239,7 @@ function showDetails(title, customersName, issueType, priorityLevel, description
     `;
     detailPopup.style.display = 'block';
   } else {
-    console.error("Element with ID 'detail-content' not found.");
+    alert("Element with ID 'detail-content' not found.");
   }
 }
 
@@ -252,7 +253,7 @@ onAuthStateChanged(auth, (user) => {
   if (user) {
     fetchTickets(user);
   } else {
-    console.error("User is not authenticated.");
+    alert("User is not authenticated.");
     window.location.href = 'login.html'; // Redirect to login page if not authenticated
   }
 });
@@ -277,6 +278,6 @@ async function fetchTickets(user) {
       addTicketToTable(doc.id, data.title, data.customersName, data.issueType, data.priorityLevel, data.description);
     });
   } catch (error) {
-    console.error("Error fetching tickets:", error);
+    alert("Error fetching tickets:", error);
   }
 }
